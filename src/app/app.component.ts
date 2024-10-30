@@ -1,22 +1,46 @@
-// src/app/app.component.ts
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
-import { MatDialog } from '@angular/material/dialog';
+import { UserLoginComponent } from './user-login/login.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    MatButtonModule,
+    MatDialogModule,
+    UserRegistrationFormComponent,
+    UserLoginComponent
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'myFlix-Angular-client';
+  isLoggedIn = false;
 
-  constructor(public dialog: MatDialog) { }
-// This is the function that will open the dialog when the signup button is clicked  
-openUserRegistrationDialog(): void {
+  constructor(public dialog: MatDialog) {}
+
+  openUserRegistrationDialog(): void {
     this.dialog.open(UserRegistrationFormComponent, {
-// Assigning the dialog a width
-    width: '280px'
+      width: '400px'
+    });
+  }
+
+  openLoginDialog(): void {
+    const dialogRef = this.dialog.open(UserLoginComponent, {
+      width: '400px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'success') {
+        this.isLoggedIn = true;
+      }
     });
   }
 }
