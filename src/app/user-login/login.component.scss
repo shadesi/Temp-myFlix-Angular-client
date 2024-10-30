@@ -1,0 +1,25 @@
+/* Styles for the login component */
+
+mat-card {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  
+  mat-card-header {
+    text-align: center;
+  }
+  
+  mat-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  button {
+    width: 100%;
+  }
