@@ -1,60 +1,30 @@
-<!-- src/app/user-registration-form/user-registration-form.component.html -->
+<!-- user-registration-form.component.html -->
 <mat-card>
   <mat-card-header>
     <mat-card-title>Sign Up!</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <!-- Added #registerForm="ngForm" and (ngSubmit)="registerUser()" -->
-    <form #registerForm="ngForm" (ngSubmit)="registerUser()">
+    <form>
       <mat-form-field>
-        <input
-          matInput
-          [(ngModel)]="userData.Username"
-          placeholder="Username"
-          type="text"
-          name="Username"
-          required
-        >
+        <mat-label>Username</mat-label>
+        <input matInput [(ngModel)]="userData.Username" name="username" required>
       </mat-form-field>
       <mat-form-field>
-        <input
-          matInput
-          [(ngModel)]="userData.Password"
-          type="password"
-          placeholder="Password"
-          name="Password"
-          required
-        >
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="userData.Password" name="password" type="password" required>
       </mat-form-field>
       <mat-form-field>
-        <input
-          matInput
-          [(ngModel)]="userData.Email"
-          type="email"
-          placeholder="Email"
-          name="Email"
-          required
-        >
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="userData.Email" name="email" required>
       </mat-form-field>
       <mat-form-field>
-        <input
-          matInput
-          [(ngModel)]="userData.Birthday"
-          type="date"
-          placeholder="Birthday"
-          name="Birthday"
-        >
+        <mat-label>Birthday</mat-label>
+        <input matInput [(ngModel)]="userData.Birthday" name="birthday" type="date" required>
       </mat-form-field>
-      <!-- Moved button inside form to support ngSubmit -->
-      <mat-card-actions>
-        <button
-          mat-raised-button
-          type="submit"
-          color="primary"
-        >
-          Sign Up
-        </button>
-      </mat-card-actions>
+      <button mat-raised-button color="primary" (click)="registerUser()">Register</button>
     </form>
   </mat-card-content>
+  <mat-card-actions>
+    
+  </mat-card-actions>
 </mat-card>
